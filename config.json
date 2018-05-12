@@ -1,0 +1,9 @@
+{
+	"server": "server_address",
+	"server_port": 9999,
+	"local_address": "127.0.0.1",
+	"local_port": 8888,
+	"password": "some_password",
+	"timeout": 300,
+	"method": "aes-128-gcm"
+}
