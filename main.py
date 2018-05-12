@@ -5,7 +5,6 @@ import base64
 import qrcode
 import os
 import sys
-import re # 來湊熱鬧的
 
 try:
     f = open(sys.argv[1])
@@ -15,7 +14,7 @@ except:
 
 config = json.load(f)
 encodestr = config['method'] + ':' + config['password']
-srcstr = "ss://%s@%s:%s#%s" % (re.match(r"b'(.*)'", str(base64.b64encode(encodestr.encode()))).group(1), config['server'], config['server_port'], 'default')
+srcstr = "ss://%s@%s:%s#%s" % (base64.b64encode(encodestr.encode()).decode(), config['server'], config['server_port'], 'default')
 qrcode.make(srcstr).save('image.png')
 
 print('Image has been saved as ./image.png !')
