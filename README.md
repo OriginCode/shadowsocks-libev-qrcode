@@ -3,4 +3,7 @@
 ## Requirements
 Python 3, qrcode
 
-## Design from @KenOokamiHoro
+**Design from @KenOokamiHoro**
+
+## Example QR Code
+![qrcode](/image.png)
