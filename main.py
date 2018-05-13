@@ -4,10 +4,14 @@ import json
 import base64
 import qrcode
 import os
-import sys
+import argparse
+
+parser = argparse.ArgumentParser(description='Generate a QR code of the shadowsocks-libev\'s config.')
+parser.add_argument('-c', '--config', type=str, help='Choose a specific config file.')
+args = parser.parse_args()
 
 try:
-    f = open(sys.argv[1])
+    f = open(args.config)
 except:
     f = open("config.json")
     print('No specific config file. Using default (./config.json).')
