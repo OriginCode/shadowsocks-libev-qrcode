@@ -8,8 +8,9 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Generate a QR code of the shadowsocks-libev\'s config.')
 
-parser.add_argument('-c', '--config', type=str, help='Choose a specific config file.')
-parser.add_argument('-s', '--save-path', type=str, help='Choose a specific QR code name & path to save.')
+parser.add_argument('-c', '--config', type=str, help='Choose a specific config file.', nargs='?')
+parser.add_argument('-s', '--save-path', type=str, help='Choose a specific QR code name & path to save.', nargs='?')
+parser.add_argument('-p', '--profile', type=str, help='Save the QR code with specified profile name.', nargs='?', const='default')
 
 group = parser.add_mutually_exclusive_group()
 group.add_argument('--ipv4', action='store_true', help='Using IPv4 IP address.')
@@ -27,13 +28,13 @@ config = json.load(f)
 encodestr = config['method'] + ':' + config['password']
 
 if args.ipv4:
-    srcstr = "ss://%s@%s:%s#%s" % (base64.b64encode(encodestr.encode()).decode(), config['server'], config['server_port'], 'default')
+    srcstr = "ss://%s@%s:%s#%s" % (base64.b64encode(encodestr.encode()).decode(), config['server'], config['server_port'], args.profile)
     print(':: Using IPv4 IP address.')
 elif args.ipv6:
-    srcstr = "ss://%s@[%s]:%s#%s" % (base64.b64encode(encodestr.encode()).decode(), config['server'], config['server_port'], 'default')
+    srcstr = "ss://%s@[%s]:%s#%s" % (base64.b64encode(encodestr.encode()).decode(), config['server'], config['server_port'], args.profile)
     print(':: Using IPv6 IP address.')
 else:
-    srcstr = "ss://%s@%s:%s#%s" % (base64.b64encode(encodestr.encode()).decode(), config['server'], config['server_port'], 'default')
+    srcstr = "ss://%s@%s:%s#%s" % (base64.b64encode(encodestr.encode()).decode(), config['server'], config['server_port'], args.profile)
     print('== No specific IP address format. Using IPv4 IP address format.')
 
 try:
