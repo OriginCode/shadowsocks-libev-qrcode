@@ -3,7 +3,7 @@
 ## Requirements
 Python 3, qrcode, argparse
 
-**Design from @KenOokamiHoro**
+**Design from [@KenOokamiHoro](https://github.com/KenOokamiHoro)**
 
 ## Example QR Code
 ![qrcode](/image.png)
