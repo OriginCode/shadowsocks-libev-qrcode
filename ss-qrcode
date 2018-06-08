@@ -50,12 +50,18 @@ def ifopen():
         exit(0)
     elif answer == "y" or answer == "Y":
         try:
-            subprocess.Popen('xdg-open %s' % args.save_path, shell=True)
+            if args.save_path is not None:
+                subprocess.Popen('xdg-open %s' % args.save_path, shell=True)
+            else:
+                subprocess.Popen('xdg-open image.png', shell=True)
         except:
             subprocess.Popen('xdg-open image.png', shell=True)
     elif answer == "":
         try:
-            subprocess.Popen('xdg-open %s' % args.save_path, shell=True)
+            if args.save_path is not None:
+                subprocess.Popen('xdg-open %s' % args.save_path, shell=True)
+            else:
+                subprocess.Popen('xdg-open image.png', shell=True)
         except:
             subprocess.Popen('xdg-open image.png', shell=True)
     else:
