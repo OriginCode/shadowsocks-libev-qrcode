@@ -6,4 +6,4 @@ Python 3, qrcode, argparse
 **Design from [@KenOokamiHoro](https://github.com/KenOokamiHoro)**
 
 ## Example QR Code
-![qrcode](/image.png)
+![qrcode](/sample_image.png)

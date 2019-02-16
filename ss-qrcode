@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser(description='Generate a QR code of the shadowso
 parser.add_argument('-c', '--config', type=str, help='Choose a specific config file.', nargs='?')
 parser.add_argument('-s', '--save-path', type=str, help='Choose a specific QR code name & path to save.', nargs='?')
 parser.add_argument('-p', '--profile', type=str, help='Save the QR code with specified profile name.', nargs='?', default='default')
+parser.add_argument('--no-open', dest='prompt_open', action='store_false', help='Do not prompt to open the QR code')
 
 group = parser.add_mutually_exclusive_group()
 group.add_argument('--ipv4', action='store_true', help='Using IPv4 IP address.')
@@ -68,4 +69,5 @@ def ifopen():
         print('!! Invalid option: %s' % answer)
         ifopen()
 
-ifopen()
+if args.prompt_open:
+    ifopen()
