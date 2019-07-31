@@ -26,6 +26,7 @@ except:
     print('== No specific config file. Using default (./config.json).')
 
 config = json.load(f)
+f.close()
 encodestr = config['method'] + ':' + config['password']
 
 if args.ipv4:
