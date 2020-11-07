@@ -53,7 +53,7 @@ def ifopen():
     elif answer == "y" or answer == "Y":
         try:
             if args.save_path is not None:
-                subprocess.Popen('xdg-open %s' % args.save_path, shell=True)
+                subprocess.Popen('xdg-open ' + args.save_path, shell=True)
             else:
                 subprocess.Popen('xdg-open image.png', shell=True)
         except:
@@ -61,13 +61,13 @@ def ifopen():
     elif answer == "":
         try:
             if args.save_path is not None:
-                subprocess.Popen('xdg-open %s' % args.save_path, shell=True)
+                subprocess.Popen('xdg-open ' + args.save_path, shell=True)
             else:
                 subprocess.Popen('xdg-open image.png', shell=True)
         except:
             subprocess.Popen('xdg-open image.png', shell=True)
     else:
-        print('!! Invalid option: %s' % answer)
+        print('!! Invalid option: ' + answer)
         ifopen()
 
 if args.prompt_open:
