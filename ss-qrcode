@@ -75,15 +75,7 @@ def ifopen():
     answer = input('>> Open the QR Code? [Y/n] ')
     if answer == "n" or answer == "N":
         exit(0)
-    elif answer == "y" or answer == "Y":
-        try:
-            if args.save_path is not None:
-                subprocess.Popen('xdg-open ' + args.save_path, shell=True)
-            else:
-                subprocess.Popen('xdg-open image.png', shell=True)
-        except:
-            subprocess.Popen('xdg-open image.png', shell=True)
-    elif answer == "":
+    elif answer == "y" or answer == "Y" or answer == "":
         try:
             if args.save_path is not None:
                 subprocess.Popen('xdg-open ' + args.save_path, shell=True)
